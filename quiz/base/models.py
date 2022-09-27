@@ -2,6 +2,18 @@ from django.db import models
 
 # Create your models here.
 
+class CategoryModel(models.Model):
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+        db_table = 'category'
+
+    category_name = models.CharField(max_length=50)
+
+    def get_question(self):
+        return self
+
+
 class AnswerModel(models.Model):
     class Meta:
         verbose_name = 'Answer'
@@ -22,7 +34,7 @@ class QuestionModel(models.Model):
         db_table = 'question'
 
     question_text = models.CharField(max_length=200)
-    category = models.CharField(max_length=50)
+    category = models.ManyToManyField(CategoryModel, related_name='category')
     answers =  models.ManyToManyField(AnswerModel, related_name='answer')
 
     def get_question(self):
