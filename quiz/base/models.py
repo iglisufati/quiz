@@ -22,7 +22,8 @@ class QuestionModel(models.Model):
         db_table = 'question'
 
     question_text = models.CharField(max_length=200)
-    answer = models.OneToOneField(AnswerModel, related_name='answer', on_delete=models.CASCADE, default="Some String")
+    category = models.CharField(max_length=50)
+    answers =  models.ManyToManyField(AnswerModel, related_name='answer')
 
     def get_question(self):
         return self
