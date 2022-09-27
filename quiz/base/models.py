@@ -34,7 +34,7 @@ class ResponseModel(models.Model):
         verbose_name_plural = 'Responses'
         db_table = 'response'
 
-    questions = models.ForeignKey(QuestionModel, related_name='question', on_delete=models.CASCADE)
+    questions = models.ManyToManyField(QuestionModel, related_name='question')
     difficulty_level = models.IntegerField(default=0)
     points = models.IntegerField(default=0)
     timer = models.IntegerField(default=0)

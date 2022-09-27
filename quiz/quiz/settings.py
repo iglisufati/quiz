@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      'rest_framework',
      'base',
+     'api',
+     'answers',
+     'questions',
+     'response',
 ]
 
 REST_FRAMEWORK = {

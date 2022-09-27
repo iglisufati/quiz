@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('api.urls')),
     path('', include('questions.urls')),
     path('', include('answers.urls')),
+    path('', include('response.urls')),
 ]
